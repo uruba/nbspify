@@ -1,29 +1,28 @@
 package config
 
 import (
+	"github.com/gobuffalo/packr"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
 	"log"
 	"strings"
 )
 
-const DefinitionDir = "./definitions/"
+const DefinitionDir = "../definitions"
 const DefinitionFileExt = "yaml"
 
 func LoadDefinitions() map[string][]string {
-	fileList, err := ioutil.ReadDir(DefinitionDir)
-	if err != nil {
-		log.Fatalf("Could not list the definition folder: %v", err)
+	box := packr.NewBox(DefinitionDir)
+	fileNames := box.List()
+	if len(fileNames) == 0 {
+		log.Fatalf("No definition files have been bundled")
 	}
 
 	definitionMap := make(map[string][]string)
 
-	for _, file := range fileList {
-		fileName := file.Name()
-
+	for _, fileName := range fileNames {
 		extension := fileName[strings.IndexByte(fileName, '.')+1:]
 		if extension == DefinitionFileExt {
-			fileContent, err := ioutil.ReadFile(DefinitionDir + fileName)
+			fileContent, err := box.Find(fileName)
 			if err != nil {
 				log.Fatalf("Could not read a definition file: %v", err)
 			}

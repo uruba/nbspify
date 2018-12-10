@@ -2,23 +2,16 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"nbspify/config"
 	"nbspify/input"
 	nbsperDefinitions "nbspify/nbspers"
 )
 
 func main() {
-	programInput := input.ReadInput()
-	if len(programInput) == 0 {
-		log.Fatalf("The input is empty.")
-	}
-
-	processedText := programInput
-
-	definitions := config.LoadDefinitions()
+	processedText := input.ReadInput()
 
 	nbspers := getNbspers()
+	definitions := config.LoadDefinitions()
 
 	if nbspers != nil {
 		for _, nbsper := range nbspers {

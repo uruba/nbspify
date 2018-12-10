@@ -15,7 +15,7 @@ func (nbsperAfter *NbsperAfter) GetCode() string {
 
 func (nbsperAfter *NbsperAfter) Apply(input string, matchSegments []string) string {
 	words := strings.Join(matchSegments, "|")
-	expression := regexp.MustCompile(fmt.Sprintf("(%s) ", words))
+	expression := regexp.MustCompile(fmt.Sprintf("( |^)(%s) ", words))
 
-	return expression.ReplaceAllString(input, "$1&nbsp;")
+	return expression.ReplaceAllString(input, "$1$2&nbsp;")
 }

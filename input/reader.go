@@ -28,7 +28,7 @@ func ReadInput() string {
 		inputRead = append(inputRead, input)
 	}
 
-	if len(inputRead) < 0 {
+	if len(inputRead) == 0 {
 		log.Fatal("No input data, exiting...")
 	}
 

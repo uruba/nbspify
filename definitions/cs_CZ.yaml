@@ -1,7 +1,15 @@
-after:
+before:
   - a
+  - i
+  - o
+  - u
+  - k
   - s
+  - v
   - z
   - za
   - po
   - do
+  - tj\.
+  - tzn\.
+  - tzv\.

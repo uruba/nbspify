@@ -11,6 +11,6 @@ func (nbsperBefore *NbsperBefore) Apply(input string, matchSegments []string) st
 	return GetNbsperProcessFunc(
 		input,
 		matchSegments,
-		" (%s)( |$)",
-		"&nbsp;$1$2")()
+		` (%s)\b`,
+		"&nbsp;$1")()
 }

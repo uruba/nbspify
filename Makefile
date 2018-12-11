@@ -19,4 +19,7 @@ config:
 fmt:
 	$(GO_BIN) fmt ./...
 
-.PHONY: install config fmt
+test:
+	$(GO_BIN) test -cover ./...
+
+.PHONY: install config fmt test

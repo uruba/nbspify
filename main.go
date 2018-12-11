@@ -27,15 +27,15 @@ func main() {
 	fmt.Print(processedText)
 }
 
-func getNbspers() []nbsperDefinitions.Nbsper {
-	nbspers := make([]nbsperDefinitions.Nbsper, 0)
+func getNbspers() []nbsperKinds.Nbsper {
+	nbspers := make([]nbsperKinds.Nbsper, 0)
 
 	// The order matters as the output is modified in-place...
-	nbspers = append(nbspers, &nbsperDefinitions.NbsperReplace{})
-	nbspers = append(nbspers, &nbsperDefinitions.NbsperInside{})
-	nbspers = append(nbspers, &nbsperDefinitions.NbsperAround{})
-	nbspers = append(nbspers, &nbsperDefinitions.NbsperBefore{})
-	nbspers = append(nbspers, &nbsperDefinitions.NbsperAfter{})
+	nbspers = append(nbspers, &nbsperKinds.NbsperReplace{})
+	nbspers = append(nbspers, &nbsperKinds.NbsperInside{})
+	nbspers = append(nbspers, &nbsperKinds.NbsperAround{})
+	nbspers = append(nbspers, &nbsperKinds.NbsperBefore{})
+	nbspers = append(nbspers, &nbsperKinds.NbsperAfter{})
 
 	return nbspers
 }

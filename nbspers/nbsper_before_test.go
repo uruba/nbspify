@@ -1,28 +1,16 @@
 package nbspers
 
 import (
-	"os"
 	"testing"
 )
 
-var nbsperBefore *NbsperBefore
-
-const codeExpected = "before"
-
-func TestMain(m *testing.M) {
-	nbsperBefore = &NbsperBefore{}
-
-	os.Exit(m.Run())
-}
+const nbsperBeforeExpectedCode = "before"
+const nbsperBeforeExpectedResult = "Lorem ipsum&nbsp;dolor sit&nbsp;amet, consectetur&nbsp;adipiscing elit,&nbsp;sed do eiusmod tempor incididunt ut labore&nbsp;et dolore magna&nbsp;aliqua."
 
 func TestNbsperBeforeCode(t *testing.T) {
-	code := nbsperBefore.GetCode()
-
-	if code != codeExpected {
-		t.Errorf("The nbsperBefore's code should be '%s', got '%s'", codeExpected, code)
-	}
+	testNbsperCode(t, nbsperBefore, nbsperBeforeExpectedCode)
 }
 
 func TestNbsperBeforeApply(t *testing.T) {
-
+	testNbsperApply(t, nbsperBefore, nbsperBeforeExpectedResult)
 }

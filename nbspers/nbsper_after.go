@@ -11,6 +11,6 @@ func (nbsperAfter *NbsperAfter) Apply(input string, matchSegments []string) stri
 	return GetNbsperProcessFunc(
 		input,
 		matchSegments,
-		"( |^)(%s) ",
-		"$1$2&nbsp;")()
+		`\b(%s) `,
+		"$1&nbsp;")()
 }

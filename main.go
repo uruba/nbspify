@@ -31,6 +31,8 @@ func getNbspers() []nbsperDefinitions.Nbsper {
 	nbspers := make([]nbsperDefinitions.Nbsper, 0)
 
 	// The order matters as the output is modified in-place...
+	nbspers = append(nbspers, &nbsperDefinitions.NbsperReplace{})
+	nbspers = append(nbspers, &nbsperDefinitions.NbsperInside{})
 	nbspers = append(nbspers, &nbsperDefinitions.NbsperAround{})
 	nbspers = append(nbspers, &nbsperDefinitions.NbsperBefore{})
 	nbspers = append(nbspers, &nbsperDefinitions.NbsperAfter{})

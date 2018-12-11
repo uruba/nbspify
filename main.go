@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"nbspify/config"
 	"nbspify/input"
-	nbsperDefinitions "nbspify/nbspers"
+	nbsperKinds "nbspify/nbspers"
 )
 
 func main() {

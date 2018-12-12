@@ -14,10 +14,6 @@ var nbsperAround = &NbsperAround{}
 var nbsperInside = &NbsperInside{}
 var nbsperReplace = &NbsperReplace{}
 
-//func TestMain(m *testing.M) {
-//	os.Exit(m.Run())
-//}
-
 func testNbsperCode(t *testing.T, nbsper Nbsper, expectedCode string) {
 	code := nbsper.GetCode()
 

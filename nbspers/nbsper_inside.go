@@ -1,6 +1,7 @@
 package nbspers
 
 import (
+	"nbspify/config"
 	"regexp"
 	"strings"
 )
@@ -12,8 +13,8 @@ func (nbsperInside *NbsperInside) GetCode() string {
 	return "inside"
 }
 
-func (nbsperInside *NbsperInside) Apply(input string, matchSegments []string) string {
-	expression := GetNbsperRegexp(matchSegments, "(.|^)%s(.|$)")
+func (nbsperInside *NbsperInside) Apply(input string, matchSegments []string, optionsNbsper *config.OptionsNbsper) string {
+	expression := GetNbsperRegexp(matchSegments, "(.|^)%s(.|$)", optionsNbsper)
 	matches := expression.FindAllString(input, -1)
 
 	if len(matches) > 0 {

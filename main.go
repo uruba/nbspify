@@ -13,18 +13,27 @@ func main() {
 	nbspers := getNbspers()
 	definitions := config.LoadDefinitions()
 
+	optionsNbsper := initOptions()
+
 	if nbspers != nil {
 		for _, nbsper := range nbspers {
-			definition := definitions[nbsper.GetCode()]
+			matchSegments := definitions[nbsper.GetCode()]
 
-			if len(definition) > 0 {
-				processedText = nbsper.Apply(processedText, definition)
+			if len(matchSegments) > 0 {
+				processedText = nbsper.Apply(processedText, matchSegments, optionsNbsper)
 			}
 		}
 	}
 
 	// STDOUT
 	fmt.Print(processedText)
+}
+
+func initOptions() *config.OptionsNbsper {
+	// TODO - configurable by flags
+	return &config.OptionsNbsper{
+		CaseSensitive: false,
+	}
 }
 
 func getNbspers() []nbsperKinds.Nbsper {

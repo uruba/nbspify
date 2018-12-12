@@ -5,7 +5,7 @@ import (
 )
 
 const nbsperReplaceExpectedCode = "replace"
-const nbsperReplaceExpectedResult = "Lorem ipsum &nbsp; sit &nbsp;, consect&nbsp;ur &nbsp;, &nbsp; do eiusmod tempor incididunt ut labore &nbsp; &nbsp;e magna &nbsp;."
+const nbsperReplaceExpectedResult = "&nbsp; ipsum &nbsp; sit &nbsp;, consect&nbsp;ur &nbsp;, &nbsp; do eiusmod tempor incididunt ut labore &nbsp; &nbsp;e magna &nbsp;."
 
 func TestNbsperReplaceCode(t *testing.T) {
 	testNbsperCode(t, nbsperReplace, nbsperReplaceExpectedCode)

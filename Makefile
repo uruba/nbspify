@@ -22,4 +22,7 @@ fmt:
 test:
 	$(GO_BIN) test -cover -v ./...
 
+test-ci:
+	$(GO_BIN) test -v -coverprofile=coverage.txt -covermode=atomic ./...
+
 .PHONY: install config fmt test
